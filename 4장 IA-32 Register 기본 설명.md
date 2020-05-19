@@ -14,4 +14,24 @@
   - EDI : destination pointer for string operations
   - ESP : Stack pointer (in the SS segment) 
   주로 메모리 주소를 저장하는 포인터로 사용
-2. 세그먼트 레지스터 (Segment Register) 16비트
+2. 세그먼트 레지스터 (Segment Register) 16비트 
+  세그먼트 : 메모리를 조각내어 각 조각마다 시작주소, 범위, 접근권한 등을 부여하여 메모리를 보호하는 기법
+  - CS : Code Segment
+  - SS : Stack Segment
+  - DS : Data Segment
+  - ES : Extra(Data) Segment
+  - FS : Data Segment
+  - GS : Data Segment
+3. 플래그 레지스터 EFLAGS (Flag Register) 32비트
+  각각 1비트 or 0비트의 값을 가짐, On/Off 의미함
+  - ZF : Zero Flag (연산명령 후 결과값이 0이되면 ZF가 1로 세팅)
+  - OF : Oveflow Flag (부호있는 수의 오버플로가 발생했을 때 1로 세팅, MSB가 변경되었을 때 1로 세팅)
+  - CF : Carry Flag (부호없는 수의 오버플로가 발생했을 때 1로 세팅)
+4. Instruction Pointer
+  - EIP : Instruction pointer (CPU가 처리할 명령어의 주소를 나타내는 레지스터, 크기는 32비트)
+  CPU는 EIP에 저장된 메모리 주소의 명령어를 하나 처리하고 난 후 자동으로 그 명령어 길이만큼 EIP증가시킴
+  값은 직접 변경할 수 없고, 다른 명령어를 통해서 간접적으로 변경해야함
+  
+---
+
+디버깅의 기초는 어셈블리 명령어의 이해인데, 그 명령어의 많은 부분은 레지스터를 조작하는 내용이라 레지스터를 잘 알면 디버깅을 하는데 크게 도움이 됨. 
